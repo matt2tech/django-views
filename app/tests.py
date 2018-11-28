@@ -33,8 +33,7 @@ class TestCase(django.test.TestCase):
                 f'Have you added a path named {view_name} to your urlpatterns?\n'
                 'Does it have the appropriate url parameters?') from None
         else:
-            self.assertRedirects(response, match)
-
+            self.assertRedirects(response, match, fetch_redirect_response=False)
 
 class TestCreateView(TestCase):
     def test_step1_root_resolves_to_app_create(self):
